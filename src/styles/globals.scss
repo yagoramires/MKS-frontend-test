@@ -1,3 +1,4 @@
+@use "./variables.scss" as *;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
 * {
@@ -17,8 +18,21 @@ li {
 
 main {
   min-height: calc(100vh - 132px);
+  padding-top: 116px;
 }
 
 a {
   text-decoration: none;
+}
+
+
+::-webkit-scrollbar {
+  background: $primary-color;
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $white;
+  border-radius: 20px;
 }
