@@ -1,0 +1,7 @@
+@use './variables.scss' as *;
+
+.header {
+    width: 100%;
+    background-color: $primary-color;
+    color: $white;
+}
