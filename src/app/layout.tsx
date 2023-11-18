@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "../styles/globals.scss";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "MKS Store",
@@ -15,8 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <Header />
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
