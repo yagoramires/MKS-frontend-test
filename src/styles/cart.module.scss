@@ -16,9 +16,12 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 2rem 1rem 3rem;
+  padding: 36px 22px 35px 47px;
 
   & h3 {
+    font-size: 1.6875rem;
+    color: $white;
+    font-weight: 700;
   }
 
   & button {
@@ -34,6 +37,14 @@
       cursor: pointer;
     }
   }
+}
+
+.cartList {
+  padding: 35px 60px 35px 47px;
+}
+
+.cartCard {
+  
 }
 
 .cartBtn {

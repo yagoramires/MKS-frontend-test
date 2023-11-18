@@ -5,10 +5,11 @@ import { motion, useAnimation } from "framer-motion";
 import styles from "../styles/cart.module.scss";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosClose } from "react-icons/io";
+import ProductCartCard from "./ProductCartCard";
 
 type Props = {};
 
-export default function Cart({}: Props) {
+export default function Cart() {
   const controls = useAnimation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,6 +22,18 @@ export default function Cart({}: Props) {
       controls.start({ x: !isOpen ? 0 : '100%' });
     }
   };
+
+  const product = {
+    "id": 8,
+    "name": "Headset Cloud Stinger",
+    "brand": "HyperX",
+    "description": "O HyperX Cloud Stinger™ é o headset ideal para jogadores que procuram leveza e conforto, qualidade de som superior e maior praticidade.",
+    "photo": "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/hyperxcloudstinger.webp",
+    "price": "600.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  }
+
 
   return (
     <div>
@@ -41,7 +54,7 @@ export default function Cart({}: Props) {
         </div>
 
         <ul className={styles.cartList}>
-          <li className={styles.cartItem}></li>
+        <ProductCartCard product={product}/>
         </ul>
       </motion.div>
       <button onClick={toggleSidebar} className={styles.cartBtn}>
