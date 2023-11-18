@@ -1,17 +1,16 @@
-import React from "react";
+'use client'
 import { IProduct } from "../interfaces/IProduct";
 import Image from "next/image";
 
 import styles from "../styles/cart.module.scss";
 import { RiShoppingBag3Line } from "react-icons/ri";
-import Link from "next/link";
+import CartInput from "./CartInput";
 
 type Props = { product: IProduct };
 
 export default function ProductCartCard({ product }: Props) {
   return (
     <li className={styles.cartCard}>
-      <Link href={`/product/${product.id}`}>
         <Image
           className={styles.productPhoto}
           src={product.photo}
@@ -21,24 +20,19 @@ export default function ProductCartCard({ product }: Props) {
         />
 
         <div className={styles.productInfo}>
-          <div>
-            <h3>{product.name}</h3>
-            <p>
-              {Number(product.price).toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0,
-              })}
-            </p>
-          </div>
-          <p>{product.description}</p>
+          <h3>{product.name}</h3>
+
+          <CartInput value={1}/>
+
+          <p>
+            {Number(product.price).toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            })}
+          </p>
         </div>
-      </Link>
-      <button className={styles.addCartBtn}>
-        <RiShoppingBag3Line />
-        COMPRAR
-      </button>
     </li>
   );
 }

@@ -23,6 +23,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
+  gap: 12px;
   
   overflow: hidden;
 }
@@ -31,7 +32,6 @@
   max-width: 100%;
   min-height: 138px;
   max-height: 138px;
-  margin-bottom: 12px;
 
   object-fit: contain;
 }

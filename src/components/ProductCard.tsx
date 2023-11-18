@@ -4,14 +4,12 @@ import Image from "next/image";
 
 import styles from "../styles/products.module.scss";
 import { RiShoppingBag3Line } from "react-icons/ri";
-import Link from "next/link";
 
 type Props = { product: IProduct };
 
 export default function ProductCard({ product }: Props) {
   return (
     <li className={styles.productCard}>
-      <Link href={`/product/${product.id}`}>
         <Image
           className={styles.productPhoto}
           src={product.photo}
@@ -34,7 +32,6 @@ export default function ProductCard({ product }: Props) {
           </div>
           <p>{product.description}</p>
         </div>
-      </Link>
       <button className={styles.addCartBtn}>
         <RiShoppingBag3Line />
         COMPRAR
