@@ -2,6 +2,8 @@
 import { CartSliceState, cartSlice, useDispatch } from "@/lib/redux";
 import Image from "next/image";
 
+import { toast } from "react-toastify";
+
 import CartInput from "./CartInput";
 import styles from "../styles/cart.module.scss";
 import { IoIosClose } from "react-icons/io";
@@ -11,12 +13,17 @@ type Props = { product: CartSliceState };
 export default function ProductCartCard({ product }: Props) {
   const dispatch = useDispatch();
 
+  const handleRemoveFromCart = () => {
+    dispatch(cartSlice.actions.removeFromCart(product.id));
+
+    toast.error("Produto removido do carrinho", {
+      theme: "colored",
+    });
+  };
+
   return (
     <li className={styles.cartCard}>
-      <button
-        className={styles.removeBtn}
-        onClick={() => dispatch(cartSlice.actions.removeFromCart(product.id))}
-      >
+      <button className={styles.removeBtn} onClick={handleRemoveFromCart}>
         <IoIosClose size={18} />
       </button>
       <Image

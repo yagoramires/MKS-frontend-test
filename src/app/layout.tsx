@@ -1,7 +1,10 @@
 "use client";
 import { QueryClient, QueryClientProvider } from "react-query";
-
 import { Providers } from "@/lib/providers";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../styles/globals.scss";
@@ -22,6 +25,11 @@ export default function RootLayout({
             <main>{children}</main>
             <Footer />
           </QueryClientProvider>
+
+          <ToastContainer
+            autoClose={3000}
+            position={toast.POSITION.BOTTOM_RIGHT}
+          />
         </body>
       </html>
     </Providers>
