@@ -8,7 +8,23 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 22px;
+    justify-items: center;
     row-gap: 31px;
+
+    @media (max-width: 1024px) {
+      padding: 2rem;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    @media (max-width: 768px) {
+      
+      padding: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -27,6 +43,10 @@
   gap: 12px;
 
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;;
+  }
 }
 
 .productPhoto {
@@ -113,7 +133,6 @@
 }
 
 .productCardSkeleton {
-
   justify-content: flex-start;
 }
 
