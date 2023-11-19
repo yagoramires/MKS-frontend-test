@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { IProduct } from "../interfaces/IProduct";
 import styles from "../styles/products.module.scss";
 import ProductCard from "@/components/ProductCard";
+import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 
 export default function Home() {
   const {
@@ -30,17 +31,11 @@ export default function Home() {
     <section className={styles.productsContainer}>
       <div>
         {isLoading ? (
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 1 }}
-            style={{
-              fontSize: "24px",
-              textAlign: "center",
-              margin: "20px",
-            }}
-          >
-            Loading...
-          </motion.div>
+          <ul>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+              <ProductCardSkeleton key={item} />
+            ))}
+          </ul>
         ) : (
           <ul>
             {products.products.map((product: IProduct) => (

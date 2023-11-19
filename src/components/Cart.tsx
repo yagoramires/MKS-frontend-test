@@ -1,16 +1,21 @@
 "use client";
 import { useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { selectedItems, useSelector } from "@/lib/redux";
 
+import { motion, useAnimation } from "framer-motion";
+import ProductCartCard from "./ProductCartCard";
 import styles from "../styles/cart.module.scss";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosClose } from "react-icons/io";
-import ProductCartCard from "./ProductCartCard";
-import Link from "next/link";
-
-type Props = {};
 
 export default function Cart() {
+  const cart = useSelector(selectedItems);
+  const total =
+    cart?.length > 0 &&
+    cart?.reduce((acc, product) => {
+      return acc + product.quantity * Number(product.price);
+    }, 0);
+
   const controls = useAnimation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,19 +26,6 @@ export default function Cart() {
     } else {
       controls.start({ x: !isOpen ? 0 : "100%" });
     }
-  };
-
-  const product = {
-    id: 8,
-    name: "Headset Cloud Stinger",
-    brand: "HyperX",
-    description:
-      "O HyperX Cloud Stinger™ é o headset ideal para jogadores que procuram leveza e conforto, qualidade de som superior e maior praticidade.",
-    photo:
-      "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/hyperxcloudstinger.webp",
-    price: "600.00",
-    createdAt: "2023-10-30T16:25:01.093Z",
-    updatedAt: "2023-10-30T16:25:01.093Z",
   };
 
   return (
@@ -55,22 +47,28 @@ export default function Cart() {
         </div>
 
         <ul className={styles.cartList}>
-          <ProductCartCard product={product} />
-          <ProductCartCard product={product} />
+          {cart?.map((product) => (
+            <ProductCartCard key={product.id} product={product} />
+          ))}
         </ul>
 
         <div className={styles.cartFooter}>
-          <p>Total: <span> {Number(product.price).toLocaleString("pt-BR", {
+          <p>
+            Total:
+            <span>
+              {Number(total).toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 0,
-              })}</span></p>
-        <button>Finalizar Compra</button>
+              })}
+            </span>
+          </p>
+          <button>Finalizar Compra</button>
         </div>
       </motion.div>
       <button onClick={toggleSidebar} className={styles.cartBtn}>
-        <TiShoppingCart size={19} /> <span>0</span>
+        <TiShoppingCart size={19} /> <span>{cart.length}</span>
       </button>
     </div>
   );

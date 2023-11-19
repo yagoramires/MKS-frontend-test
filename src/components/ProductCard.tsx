@@ -4,10 +4,15 @@ import Image from "next/image";
 
 import styles from "../styles/products.module.scss";
 import { RiShoppingBag3Line } from "react-icons/ri";
+import { cartSlice, useDispatch } from "@/lib/redux";
 
 type Props = { product: IProduct };
 
 export default function ProductCard({ product }: Props) {
+
+
+  const dispatch = useDispatch()
+
   return (
     <li className={styles.productCard}>
         <Image
@@ -32,7 +37,7 @@ export default function ProductCard({ product }: Props) {
           </div>
           <p>{product.description}</p>
         </div>
-      <button className={styles.addCartBtn}>
+      <button className={styles.addCartBtn} onClick={()=> dispatch(cartSlice.actions.addToCart(product))}>
         <RiShoppingBag3Line />
         COMPRAR
       </button>
