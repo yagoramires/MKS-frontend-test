@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Desafio MKS Store
 
-## Getting Started
+Este projeto é uma aplicação web desenvolvida como parte de um desafio técnico. O objetivo principal é consumir uma API REST de produtos para exibir a lista de produtos de uma loja virtual. A aplicação foi construída com foco em clareza de código e reutilização de componentes.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A aplicação consiste em uma única página/rota que exibe a lista de produtos da loja e um carrinho de compras. Abaixo estão detalhes sobre cada parte:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Loja
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- A lista de produtos é obtida da API REST de produtos.
+- Utilizei um efeito shimmer/skeleton para melhorar a experiência do usuário durante o carregamento dos dados.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Carrinho
 
-## Learn More
+- O carrinho exibe todos os produtos selecionados pelo usuário.
+- Adicionei a funcionalidade de aumentar a quantidade de cada produto no carrinho.
 
-To learn more about Next.js, take a look at the following resources:
+## Design e Estilo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O design da loja foi baseado no [Figma loja](https://www.figma.com/file/ay9JKCd6LKvKLE7TclJJkX/MKS-Front-end-challenge?type=design&node-id=0-1&mode=design&t=53jzmd9yCzFq0o88-0), que inclui o design system e a escolha da fonte. Utilizei Sass para a estilização dos componentes, garantindo uma aparência consistente e agradável.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Tecnologias Utilizadas
 
-## Deploy on Vercel
+- TypeScript
+- Next.js
+- React-query e axios para requisições à API
+- React-redux para gerenciamento de estado
+- Sass e react-icons para estilização
+- Framer-motion para animações
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+A aplicação foi implantada no ambiente Vercel, garantindo acessibilidade estável para avaliação. Você pode acessar a aplicação [aqui](https://mks-frontend-test-by-yago-ramires.vercel.app/) e o código-fonte está disponível no repositório [aqui](https://github.com/yagoramires/MKS-frontend-test).
+
+Fique à vontade para explorar a aplicação e fornecer feedback. Espero que a experiência atenda às expectativas e estou disponível para esclarecer qualquer dúvida. Obrigado pela oportunidade!

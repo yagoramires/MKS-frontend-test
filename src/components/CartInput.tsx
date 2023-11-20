@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CartSliceState, cartSlice, useDispatch } from "@/lib/redux";
 
 import styles from "../styles/cart.module.scss";

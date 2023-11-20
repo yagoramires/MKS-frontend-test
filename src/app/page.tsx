@@ -1,7 +1,7 @@
 'use client'
 import useFetchProducts from "@/api";
-
 import { IProduct } from "../interfaces/IProduct";
+
 import styles from "../styles/products.module.scss";
 import ProductCard from "@/components/ProductCard";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";

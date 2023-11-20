@@ -2,9 +2,10 @@ import Image from "next/image";
 import { IProduct } from "../interfaces/IProduct";
 import { cartSlice, useDispatch } from "@/lib/redux";
 
+import { toast } from "react-toastify";
+
 import styles from "../styles/products.module.scss";
 import { RiShoppingBag3Line } from "react-icons/ri";
-import { toast } from "react-toastify";
 
 type Props = { product: IProduct };
 
